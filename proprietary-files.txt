@@ -1,7 +1,14 @@
+bin/tvoutserver
+lib/lib_tvoutengine.so
+lib/libtvoutfimc.so
+lib/libtvouthdmi.so
+lib/libtvout_jni.so
+lib/libtvoutservice.so
+lib/libtvout.so
 vendor/bin/pvrsrvinit
 vendor/firmware/bcm4329.hcd
-vendor/firmware/nvram_net.txt
 vendor/firmware/cypress-touchkey.bin
+vendor/firmware/nvram_net.txt
 vendor/firmware/samsung_mfc_fw.bin
 vendor/lib/egl/libEGL_POWERVR_SGX540_120.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so
@@ -15,11 +22,3 @@ vendor/lib/libPVRScopeServices.so
 vendor/lib/libsrv_init.so
 vendor/lib/libsrv_um.so
 vendor/lib/libusc.so
-lib/libtvout.so
-lib/libtvout_jni.so
-lib/lib_tvoutengine.so
-lib/libtvoutfimc.so
-lib/libtvouthdmi.so
-lib/libtvoutservice.so
-bin/tvoutserver
-
