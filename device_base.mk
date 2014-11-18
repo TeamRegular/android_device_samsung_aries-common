@@ -46,7 +46,6 @@ PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/init.aries.gps.rc:root/init.aries.gps.rc \
 	device/samsung/aries-common/init.aries.usb.rc:root/init.aries.usb.rc \
 	device/samsung/aries-common/init.recovery.aries.rc:root/init.recovery.aries.rc \
-	device/samsung/aries-common/fstab.aries:root/fstab.aries \
 	device/samsung/aries-common/lpm.rc:root/lpm.rc \
 	device/samsung/aries-common/ueventd.aries.rc:root/ueventd.aries.rc \
 	device/samsung/aries-common/setupdatadata.sh:root/sbin/setupdatadata.sh
@@ -99,17 +98,26 @@ PRODUCT_PACKAGES += \
 	power.s5pc110 \
 	hwcomposer.s5pc110 \
 	camera.aries \
-	audio.primary.aries \
-	audio.a2dp.default \
-	audio.usb.default \
-	libs3cjpeg
+	libs3cjpeg \
+	libstagefrighthw \
+    pvrsrvinit
 
+# Wifi
+PRODUCT_PACKAGES := \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+# Audio
 PRODUCT_COPY_FILES += \
 	device/samsung/aries-common/libaudio/audio_policy.conf:system/etc/audio_policy.conf
 
-# Libs
-PRODUCT_PACKAGES += \
-	libstagefrighthw
+PRODUCT_PACKAGES := \
+	audio.primary.aries \
+	audio.a2dp.default \
+	audio.usb.default
 
 # Bluetooth MAC Address
 PRODUCT_PACKAGES += \

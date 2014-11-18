@@ -5,7 +5,6 @@ lib/libtvouthdmi.so
 lib/libtvout_jni.so
 lib/libtvoutservice.so
 lib/libtvout.so
-vendor/bin/pvrsrvinit
 vendor/firmware/bcm4329.hcd
 vendor/firmware/cypress-touchkey.bin
 vendor/firmware/nvram_net.txt

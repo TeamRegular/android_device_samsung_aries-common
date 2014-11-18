@@ -56,6 +56,9 @@ BOARD_CAMERA_LIBRARIES := libcamera
 endif
 BOARD_CAMERA_HAVE_ISO := true
 
+# Includes
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/aries-common/include
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -68,7 +71,7 @@ BOARD_NAND_PAGE_SIZE := 4096
 BOARD_NAND_SPARE_SIZE := 128
 BOARD_KERNEL_BASE := 0x32000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := console=ttyFIQ0,115200 init=/init no_console_suspend
+BOARD_KERNEL_CMDLINE := console=ttyFIQ0,115200 init=/init no_console_suspend androidboot.selinux=permissive
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 7864320
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 629145600
@@ -102,7 +105,6 @@ BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/aries-common/recovery/graphics.
 BOARD_USES_BML_OVER_MTD := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/aries-common/shbootimg.mk
 TARGET_RECOVERY_FSTAB := device/samsung/aries-common/fstab.aries
-RECOVERY_FSTAB_VERSION := 2
 TARGET_NO_SEPARATE_RECOVERY := true
 
 # Boot Animation
@@ -126,7 +128,7 @@ BOARD_EGL_CFG := device/samsung/aries-common/egl.cfg
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 
 BOARD_ALLOW_EGL_HIBERNATION := true
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
+COMMON_GLOBAL_CFLAGS += -DWORKAROUND_BUG_10194508=1
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # hwcomposer: custom vsync ioctl
@@ -141,20 +143,23 @@ COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 # Screenrecord
 BOARD_SCREENRECORD_LANDSCAPE_ONLY := true
 
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/aries-common/sepolicy
+# Logging
+TARGET_USES_LOGD := false
 
-BOARD_SEPOLICY_UNION += \
-    bdaddr_read.te \
-    file_contexts \
-    geomagneticd.te \
-    orientationd.te \
-    property_contexts \
-    pvrsrvinit.te \
-    rild.te \
-    tvouthack.te \
-    tvoutserver.te \
+# SELinux
+#BOARD_SEPOLICY_DIRS += \
+#    device/samsung/aries-common/sepolicy
+
+#BOARD_SEPOLICY_UNION += \
+#    bdaddr_read.te \
+#    file_contexts \
+#    geomagneticd.te \
+#    orientationd.te \
+#    property_contexts \
+#    pvrsrvinit.te \
+#    rild.te \
+#    tvouthack.te \
+#    tvoutserver.te \
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/samsung/aries-common/cmhw/
